@@ -1,0 +1,9 @@
+
+name: tag_own_repo
+on: [push]
+jobs:
+  old-git-container:
+    runs-on: ubuntu-latest
+    container: python:3.6.9
+    steps:
+      - run: git --version
