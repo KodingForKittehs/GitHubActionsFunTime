@@ -4,6 +4,6 @@ on: [push]
 jobs:
   old-git-container:
     runs-on: ubuntu-latest
-    container: python:3.6.9
+    container: python:3.4
     steps:
       - run: git --version
