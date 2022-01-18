@@ -1,6 +1,9 @@
 
 name: tag_own_repo
-on: [push]
+on:
+  push:
+    paths:
+      - '.github/workflows/tag_own_repo.yml'
 jobs:
   old-git-container:
     runs-on: ubuntu-latest
