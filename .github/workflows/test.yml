@@ -1,5 +1,8 @@
 name: learn-github-actions
-on: [push]
+on:
+  push:
+    paths:
+      - '.github/workflows/test.yml'
 jobs:
   run-mongo:
     runs-on: ubuntu-latest
