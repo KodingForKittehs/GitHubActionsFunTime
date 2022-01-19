@@ -5,6 +5,11 @@ on:
     paths:
       - '.github/workflows/tag_own_repo.yml'
 jobs:
+  serious-job-is-serios:
+    runs-on: ubuntu-latest
+    steps:
+      # If this job fails, make those other tasks don't go tagging things
+      - run: touch this
   old-git-container:
     runs-on: ubuntu-latest
     container: python:3.4
@@ -23,7 +28,7 @@ jobs:
       - run: git --version
       - run: git config --global user.email "grumpy@cat.chat"
       - run: git config --global user.name ":cat:"
-      - run: git tag -a ${GITHUB_RUN_NUMBER} -m "Tagged with new git"
+      - run: git tag -a container-${GITHUB_RUN_NUMBER} -m "Tagged with new git"
       - run: git push --tags
   no-container:
     runs-on: ubuntu-latest
@@ -33,6 +38,6 @@ jobs:
       - run: git --version
       - run: git config --global user.email "grubumpu@cat.chat"
       - run: git config --global user.name "kodingfor🐱s"
-      - run: git tag -a ${GITHUB_RUN_NUMBER} -m "Tagged with ubuntu latest"
+      - run: git tag -a non-container-${GITHUB_RUN_NUMBER} -m "Tagged with ubuntu latest"
       - run: git push --tags
   
