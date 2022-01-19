@@ -10,8 +10,10 @@ jobs:
     container: python:3.4
     steps:
       - run: git --version
+      - run: git tag -a 1.2.0
   new-git-container:
     runs-on: ubuntu-latest
     container: python:3.10
     steps:
       - run: git --version
+      - run: git tag -a 1.3.0
