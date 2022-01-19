@@ -8,8 +8,8 @@ jobs:
   serious-job-is-serios:
     runs-on: ubuntu-latest
     steps:
-      # If this job fails, make those other tasks don't go tagging things
-      - run: touch this
+      # If this job fails, make sure those other tasks don't go tagging things
+      - run: cant touch this
   old-git-container:
     runs-on: ubuntu-latest
     container: python:3.4
@@ -19,6 +19,7 @@ jobs:
       # This fails with the error:
       #  fatal: Not a git repository (or any parent up to mount point /__w)
       # - Due to older git installation in the old container :cat:
+      # If this job fails, maybe we don't care so much
       - run: git tag -a ${GITHUB_RUN_NUMBER} -m "Tagged with old git 2.old"
   new-git-container:
     runs-on: ubuntu-latest
