@@ -34,4 +34,5 @@ jobs:
       - run: git config --global user.email "grubumpu@cat.chat"
       - run: git config --global user.name "kodingfor🐱s"
       - run: git tag -a ${GITHUB_RUN_NUMBER} -m "Tagged with ubuntu latest"
+      - run: git push --tags
   
