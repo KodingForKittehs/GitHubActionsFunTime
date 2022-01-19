@@ -9,11 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     container: python:3.4
     steps:
+      - uses: action/checkout@2
       - run: git --version
-      - run: git tag -a 1.2.0
+      - run: git tag -a 1.2.0 -m "Tagged with old git 2.old"
   new-git-container:
     runs-on: ubuntu-latest
     container: python:3.10
     steps:
+      - uses: action/checkout@2
       - run: git --version
-      - run: git tag -a 1.3.0
+      - run: git tag -a 1.3.0 -m "Tagged with new git"
