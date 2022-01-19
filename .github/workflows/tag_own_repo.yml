@@ -11,6 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: git --version
+      # This fails with the error:
+      #  fatal: Not a git repository (or any parent up to mount point /__w)
+      # - Due to older git installation in the old container :cat:
       - run: git tag -a ${GITHUB_RUN_NUMBER} -m "Tagged with old git 2.old"
   new-git-container:
     runs-on: ubuntu-latest
@@ -21,11 +24,14 @@ jobs:
       - run: git config --global user.email "grumpy@cat.chat"
       - run: git config --global user.name ":cat:"
       - run: git tag -a ${GITHUB_RUN_NUMBER} -m "Tagged with new git"
+      - run: git push --tags
   no-container:
     runs-on: ubuntu-latest
     container: python:3.10
     steps:
       - uses: actions/checkout@v2
       - run: git --version
+      - run: git config --global user.email "grubumpu@cat.chat"
+      - run: git config --global user.name "kodingfor🐱s"
       - run: git tag -a ${GITHUB_RUN_NUMBER} -m "Tagged with ubuntu latest"
   
