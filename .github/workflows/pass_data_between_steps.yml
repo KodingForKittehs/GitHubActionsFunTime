@@ -14,8 +14,8 @@ jobs:
         run: |
           echo "test_var=step 2" >> $GITHUB_ENV
           echo "${{ env.action_state }}" # This will output 'yellow'
-          echo "test var ${{ env.test_var }}"
+          echo "test var ${{ env.test_var }}" # Can't access this var in this step
       - name: step 3
         run: |
           echo "${{ env.action_state }}" # This will output 'yellow'
-          echo "test var ${{ env.test_var }}"
+          echo "test var ${{ env.test_var }}" # Both variables are now available
