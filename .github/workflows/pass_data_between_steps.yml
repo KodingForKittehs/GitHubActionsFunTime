@@ -1,6 +1,10 @@
 name: pass_variable_between_steps
 
-on: [push]
+      
+on:
+  push:
+    paths:
+      - '.github/workflows/pass_data_between_steps.yml'
 jobs:
   build:
     runs-on: ubuntu-latest
