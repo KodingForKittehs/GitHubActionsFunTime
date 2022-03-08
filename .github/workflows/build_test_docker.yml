@@ -11,4 +11,4 @@ jobs:
       - name: Build image
         id: build-image
         run: |
-          docker build
+          docker build -t test_app:1.0 .
