@@ -1,7 +1,7 @@
 name: python-coverage
       
 on:
-  pull-request:
+  pull_request:
     paths:
       - '.github/workflows/python_coverage.yml'
       - 'python/*'
