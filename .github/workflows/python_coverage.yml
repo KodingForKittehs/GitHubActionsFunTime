@@ -20,3 +20,8 @@ jobs:
         with:
           name: html-coverage
           path: python/htmlcov
+      - name: Coverage comment
+        id: coverage_comment
+        uses: ewjoachim/python-coverage-comment-action@v2
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
