@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/python_coverage.yml'
       - 'python/*'
+    branches: ['main']
 jobs:
   build:
     runs-on: ubuntu-latest
