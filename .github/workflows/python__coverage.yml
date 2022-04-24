@@ -11,4 +11,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: pip install coverage
-      - run: coverage run -m unittest test_sample_lib
+      - run: cd python && coverage run -m unittest test_sample_lib
+      - run: ls
