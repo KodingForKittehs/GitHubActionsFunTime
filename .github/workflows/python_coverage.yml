@@ -16,10 +16,7 @@ jobs:
           cd python
           coverage run -m unittest test_sample_lib
           coverage html
-      - uses: actions/upload-artifact@v3
-        with:
-          name: html-coverage
-          path: python/htmlcov
+          mv .coverage ..
       - name: Coverage comment
         id: coverage_comment
         uses: ewjoachim/python-coverage-comment-action@v2
