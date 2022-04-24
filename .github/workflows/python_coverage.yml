@@ -5,9 +5,9 @@ on:
     paths:
       - '.github/workflows/python_coverage.yml'
       - 'python/*'
-    branches: ['main']
+    branches: [main]
 jobs:
-  build:
+  run-coverage:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
