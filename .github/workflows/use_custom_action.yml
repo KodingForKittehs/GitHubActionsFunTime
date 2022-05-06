@@ -1,0 +1,14 @@
+name: build_test_docker
+      
+on:
+  push:
+    paths:
+      - '.github/workflows/use_custom_action.yml'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v3
+      - name: Custom Action
+        uses: KodingForKittehs/GitHubCustomAction
