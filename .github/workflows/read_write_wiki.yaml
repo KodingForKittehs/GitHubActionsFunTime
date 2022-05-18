@@ -6,5 +6,8 @@ on:
       - ${{ git.GITHUB_WORKFLOW }}
       
 jobs:
-  name: Read Wiki
-  rum: ls
+  read-wiki:
+    runs-on: ubuntu-latest
+    name: Read Wiki
+    steps:
+      - run: ls
