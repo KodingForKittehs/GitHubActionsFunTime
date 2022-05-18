@@ -1,0 +1,10 @@
+name: Read and Write Wike
+
+on:
+  push:
+    paths:
+      - ${{ git.GITHUB_WORKFLOW }}
+      
+jobs:
+  name: Read Wiki
+  rum: ls
