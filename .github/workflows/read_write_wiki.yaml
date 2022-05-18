@@ -3,7 +3,7 @@ name: Read and Write Wike
 on:
   push:
     paths:
-      - ${{ git.GITHUB_WORKFLOW }}
+      - '.github/workflows/read_write_wiki.yaml'
       
 jobs:
   read-wiki:
