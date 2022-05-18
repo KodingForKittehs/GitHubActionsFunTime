@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     name: Read Wiki
     steps:
-      - run: ls
+      - run: env
