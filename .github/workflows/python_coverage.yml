@@ -1,0 +1,24 @@
+name: python-coverage
+      
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/python_coverage.yml'
+      - 'python/*'
+    branches: [main]
+jobs:
+  run-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: pip install coverage
+      - run: |
+          cd python
+          coverage run -m unittest test_sample_lib
+          coverage html
+          mv .coverage ..
+      - name: Coverage comment
+        id: coverage_comment
+        uses: ewjoachim/python-coverage-comment-action@v2
+        with:
+          GITHUB_TOKEN: ${{ github.token }}

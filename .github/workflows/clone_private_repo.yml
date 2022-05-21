@@ -1,0 +1,13 @@
+on:
+  push:
+    paths:
+      '.github/workflows/clone_private_repo.yml'
+
+jobs:
+  clone-repo:
+    using: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: kodingforkittehs/privaterepo
+      - run: ls -a
