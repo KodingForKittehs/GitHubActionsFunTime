@@ -1,13 +1,26 @@
 on:
   push:
     paths:
-      '.github/workflows/clone_private_repo.yml'
+      - '.github/workflows/clone_private_repo.yml'
 
 jobs:
   clone-repo:
     runs-on: ubuntu-latest
+    env:
+      SSH_PRIV: ${{ secrets.SSH_PRIV }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Print secret
+        run: echo "${SSH_PRIV}"
+      - name: Checkout a public repository
+        uses: actions/checkout@v3
+        with:
+          repository: kodingforkittehs/actionstoolbelt
+          path: actions-toolbelt
+      - name: Checkout a private repository
+        uses: actions/checkout@v3
         with:
           repository: kodingforkittehs/privaterepo
-      - run: ls -a
+          path: private-repo
+          ssh-key: ${{ secrets.SSH_PRIV }}
+      - run: pwd
+      - run: ls -R
